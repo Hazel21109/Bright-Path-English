@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bright Path English Learning Center | Bago</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Padauk:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              sky: '#e0f2fe',
+              lightYellow: '#fef08a',
+              darkBlue: '#0f172a',
+              primaryBlue: '#0284c7',
+              accentYellow: '#eab308',
+              surface: '#f8fafc',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Padauk', 'sans-serif'],
+            mm: ['Padauk', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-sky-200">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-slate-900 text-slate-200 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-1.5 text-sky-400">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+          <span>No 1677 San Daw Twin Road, Bago</span>
+        </span>
+        <span class="hidden md:flex items-center gap-1.5 text-slate-400">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+          <span>+95 976419198</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3 ml-auto">
+        <!-- Language Switcher Button -->
+        <button id="langToggleBtn" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-sky-300 px-2.5 py-1 rounded-md text-xs font-semibold transition border border-slate-700">
+          <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+          <span id="langLabel">EN | မြန်မာ</span>
+        </button>
+        <span class="bg-amber-500/20 text-amber-300 text-[10px] uppercase font-bold px-2 py-0.5 rounded-full border border-amber-500/30">
+          New Term Enrolling
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-sky-600 via-blue-600 to-amber-400 p-0.5 shadow-md group-hover:scale-105 transition transform">
+            <div class="w-full h-full bg-white rounded-[10px] flex items-center justify-center overflow-hidden">
+              <svg class="w-8 h-8 text-sky-600" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 15 L20 30 L50 45 L80 30 Z" fill="#0284c7"/>
+                <path d="M25 45 V65 C25 75 50 85 50 85 C50 85 75 75 75 65 V45" stroke="#0f172a" stroke-width="6" stroke-linecap="round"/>
+                <path d="M50 45 V85" stroke="#eab308" stroke-width="5"/>
+                <circle cx="50" cy="20" r="6" fill="#eab308"/>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <span class="text-xl font-extrabold tracking-tight text-slate-900 block leading-tight">BRIGHT PATH</span>
+            <span class="text-[10px] font-bold text-sky-600 tracking-wider uppercase block">English Learning Center</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
+          <a href="#home" class="hover:text-sky-600 transition" data-i18n="nav_home">Home</a>
+          <a href="#quest" class="hover:text-sky-600 transition flex items-center gap-1 text-amber-600 font-bold">
+            <i data-lucide="gamepad-2" class="w-4 h-4"></i>
+            <span data-i18n="nav_quest">CEFR Quest</span>
+          </a>
+          <a href="#about" class="hover:text-sky-600 transition" data-i18n="nav_about">About Us</a>
+          <a href="#courses" class="hover:text-sky-600 transition" data-i18n="nav_courses">Courses</a>
+          <a href="#pricing" class="hover:text-sky-600 transition" data-i18n="nav_pricing">Pricing</a>
+          <a href="#gallery" class="hover:text-sky-600 transition" data-i18n="nav_gallery">Gallery</a>
+          <a href="#faq" class="hover:text-sky-600 transition" data-i18n="nav_faq">FAQ</a>
+          <a href="#contact" class="hover:text-sky-600 transition" data-i18n="nav_contact">Contact</a>
+        </nav>
+
+        <!-- Right Header Actions -->
+        <div class="hidden lg:flex items-center gap-3">
+          <button onclick="openPlacementModal()" class="text-xs font-bold px-3.5 py-2 rounded-lg bg-amber-100 text-amber-900 hover:bg-amber-200 transition flex items-center gap-1.5 border border-amber-300">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-600"></i>
+            <span data-i18n="btn_test">Free Level Test</span>
+          </button>
+          <button onclick="openAuthModal('login')" class="text-xs font-bold px-4 py-2 rounded-lg text-slate-700 hover:bg-slate-100 transition border border-slate-300" data-i18n="btn_login">
+            Login
+          </button>
+          <button onclick="openAuthModal('register')" class="text-xs font-bold px-4 py-2 rounded-lg bg-sky-600 text-white hover:bg-sky-700 shadow-sm transition" data-i18n="btn_register">
+            Enroll Now
+          </button>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" class="lg:hidden p-2 text-slate-600 hover:text-slate-900 rounded-lg">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+      <a href="#home" class="block py-2 text-slate-700 font-medium" data-i18n="nav_home">Home</a>
+      <a href="#quest" class="block py-2 text-amber-600 font-bold" data-i18n="nav_quest">CEFR Quest Map</a>
+      <a href="#about" class="block py-2 text-slate-700 font-medium" data-i18n="nav_about">About Us</a>
+      <a href="#courses" class="block py-2 text-slate-700 font-medium" data-i18n="nav_courses">Courses</a>
+      <a href="#pricing" class="block py-2 text-slate-700 font-medium" data-i18n="nav_pricing">Pricing</a>
+      <a href="#gallery" class="block py-2 text-slate-700 font-medium" data-i18n="nav_gallery">Gallery</a>
+      <a href="#contact" class="block py-2 text-slate-700 font-medium" data-i18n="nav_contact">Contact</a>
+      <div class="pt-4 border-t border-slate-100 flex flex-col gap-2">
+        <button onclick="openPlacementModal()" class="w-full py-2.5 bg-amber-100 text-amber-900 font-bold rounded-lg flex justify-center items-center gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-amber-600"></i>
+          <span data-i18n="btn_test">Free Level Test</span>
+        </button>
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="openAuthModal('login')" class="w-full py-2 border border-slate-300 font-bold rounded-lg text-slate-700" data-i18n="btn_login">Login</button>
+          <button onclick="openAuthModal('register')" class="w-full py-2 bg-sky-600 font-bold rounded-lg text-white" data-i18n="btn_register">Register</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main>
+    
+    <!-- HERO SECTION -->
+    <section id="home" class="relative overflow-hidden bg-gradient-to-b from-sky-50 via-white to-slate-50 pt-12 pb-20 lg:pt-20 lg:pb-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100 border border-sky-200 text-sky-800 text-xs font-bold">
+              <i data-lucide="trophy" class="w-4 h-4 text-amber-500"></i>
+              <span data-i18n="hero_badge">Gamified CEFR English Mastery in Bago</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-none">
+              <span data-i18n="hero_title1">Level Up Your English From</span> <br class="hidden sm:inline" />
+              <span class="bg-gradient-to-r from-sky-600 via-blue-600 to-amber-500 bg-clip-text text-transparent" data-i18n="hero_title2">Starter to C1 Fluency</span>
+            </h1>
+
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed" data-i18n="hero_desc">
+              Experience Myanmar's premier game-based English curriculum. Clear interactive levels, earn XP rewards, measure real progress, and unlock international opportunities in Bago.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+              <button onclick="scrollToQuest()" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 text-white font-bold text-base shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 hover:-translate-y-0.5 transition flex items-center justify-center gap-2">
+                <i data-lucide="play-circle" class="w-5 h-5"></i>
+                <span data-i18n="hero_cta_primary">Explore Learning Map</span>
+              </button>
+              
+              <button onclick="openPlacementModal()" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-white border border-slate-300 text-slate-800 font-bold text-base hover:bg-slate-50 transition flex items-center justify-center gap-2 shadow-sm">
+                <i data-lucide="compass" class="w-5 h-5 text-amber-500"></i>
+                <span data-i18n="hero_cta_secondary">Take Level Test</span>
+              </button>
+            </div>
+
+            <div class="pt-6 border-t border-slate-200/80 flex flex-wrap justify-center lg:justify-start gap-8 text-left">
+              <div>
+                <p class="text-2xl font-black text-slate-900">1,200+</p>
+                <p class="text-xs text-slate-500 font-medium" data-i18n="hero_stat1">Active Students</p>
+              </div>
+              <div class="w-px h-10 bg-slate-200"></div>
+              <div>
+                <p class="text-2xl font-black text-slate-900">98%</p>
+                <p class="text-xs text-slate-500 font-medium" data-i18n="hero_stat2">Pass Rate</p>
+              </div>
+              <div class="w-px h-10 bg-slate-200"></div>
+              <div>
+                <p class="text-2xl font-black text-slate-900">6 Levels</p>
+                <p class="text-xs text-slate-500 font-medium" data-i18n="hero_stat3">Pre-A1 to C1 Advanced</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Graphic / Student Illustration Card -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              <!-- Backdrop Glow -->
+              <div class="absolute -inset-1 bg-gradient-to-r from-sky-400 to-amber-300 rounded-3xl blur-2xl opacity-40"></div>
+              
+              <div class="relative bg-white p-3 rounded-3xl shadow-2xl border border-slate-100">
+                <div class="relative overflow-hidden rounded-2xl aspect-[4/3]">
+                  <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80" alt="Students learning English together at Bright Path" class="object-cover w-full h-full" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+                    <span class="bg-amber-400 text-slate-900 font-bold text-xs uppercase tracking-wider px-2.5 py-1 rounded-md w-max mb-2">Live Class in Bago</span>
+                    <h3 class="text-lg font-bold">Interactive Speaking & Real Skills</h3>
+                  </div>
+                </div>
+
+                <!-- Floating Game Level Card overlay -->
+                <div class="mt-3 bg-slate-900 text-white p-4 rounded-xl flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-sky-500 flex items-center justify-center font-extrabold text-white">
+                      B1
+                    </div>
+                    <div>
+                      <p class="text-xs font-semibold text-slate-400">Current Level</p>
+                      <p class="text-sm font-bold text-white">Intermediate Quest</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <p class="text-xs font-bold text-amber-400">XP Earned</p>
+                    <p class="text-sm font-extrabold">2,450 XP</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GAMIFIED CEFR LEVEL QUEST MAP SECTION -->
+    <section id="quest" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-500/30">
+            <i data-lucide="gamepad-2" class="w-4 h-4"></i>
+            <span data-i18n="quest_badge">Game-Based Progression</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="quest_title">
+            The CEFR English Journey Map
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base" data-i18n="quest_subtitle">
+            Click on any level node below to inspect lesson modules, requirements, and unlockable achievements from Beginner to Advanced C1.
+          </p>
+        </div>
+
+        <!-- Interactive Level Map Node Track -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
+          
+          <!-- Node 1: Pre-A1 -->
+          <div onclick="openLevelDrawer('prea1')" class="group cursor-pointer bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-sky-500 rounded-2xl p-6 transition duration-300 relative overflow-hidden">
+            <div class="flex items-start justify-between mb-4">
+              <span class="w-12 h-12 rounded-xl bg-slate-700 text-slate-300 font-extrabold text-lg flex items-center justify-center group-hover:bg-sky-600 group-hover:text-white transition">
+                01
+              </span>
+              <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-slate-700 text-slate-300">Pre-A1</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition">Starter Foundations</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">Alphabet, essential greetings, fundamental vocabulary & pronunciation basics.</p>
+            <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden mb-3">
+              <div class="bg-sky-400 h-full w-full"></div>
+            </div>
+            <div class="flex justify-between items-center text-xs font-semibold text-slate-400">
+              <span>Duration: 1.5 Months</span>
+              <span class="text-amber-400 font-bold">+500 XP</span>
+            </div>
+          </div>
+
+          <!-- Node 2: A1 -->
+          <div onclick="openLevelDrawer('a1')" class="group cursor-pointer bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-sky-500 rounded-2xl p-6 transition duration-300 relative overflow-hidden">
+            <div class="flex items-start justify-between mb-4">
+              <span class="w-12 h-12 rounded-xl bg-slate-700 text-slate-300 font-extrabold text-lg flex items-center justify-center group-hover:bg-sky-600 group-hover:text-white transition">
+                02
+              </span>
+              <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-slate-700 text-slate-300">A1 Level</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition">Elementary Communicator</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">Simple everyday sentences, introducing self & asking basic questions in daily life.</p>
+            <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden mb-3">
+              <div class="bg-sky-400 h-full w-4/5"></div>
+            </div>
+            <div class="flex justify-between items-center text-xs font-semibold text-slate-400">
+              <span>Duration: 2 Months</span>
+              <span class="text-amber-400 font-bold">+800 XP</span>
+            </div>
+          </div>
+
+          <!-- Node 3: A2 -->
+          <div onclick="openLevelDrawer('a2')" class="group cursor-pointer bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-sky-500 rounded-2xl p-6 transition duration-300 relative overflow-hidden">
+            <div class="flex items-start justify-between mb-4">
+              <span class="w-12 h-12 rounded-xl bg-slate-700 text-slate-300 font-extrabold text-lg flex items-center justify-center group-hover:bg-sky-600 group-hover:text-white transition">
+                03
+              </span>
+              <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-slate-700 text-slate-300">A2 Level</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition">Pre-Intermediate Quest</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">Routine information exchange, past events, expressing opinions and shopping.</p>
+            <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden mb-3">
+              <div class="bg-sky-400 h-full w-3/5"></div>
+            </div>
+            <div class="flex justify-between items-center text-xs font-semibold text-slate-400">
+              <span>Duration: 2.5 Months</span>
+              <span class="text-amber-400 font-bold">+1,200 XP</span>
+            </div>
+          </div>
+
+          <!-- Node 4: B1 -->
+          <div onclick="openLevelDrawer('b1')" class="group cursor-pointer bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-sky-500 rounded-2xl p-6 transition duration-300 relative overflow-hidden">
+            <div class="flex items-start justify-between mb-4">
+              <span class="w-12 h-12 rounded-xl bg-slate-700 text-slate-300 font-extrabold text-lg flex items-center justify-center group-hover:bg-sky-600 group-hover:text-white transition">
+                04
+              </span>
+              <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">B1 Level</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition">Intermediate Standard</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">Work & travel English, main points of clear texts, describing experiences & ambitions.</p>
+            <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden mb-3">
+              <div class="bg-amber-400 h-full w-2/5"></div>
+            </div>
+            <div class="flex justify-between items-center text-xs font-semibold text-slate-400">
+              <span>Duration: 3 Months</span>
+              <span class="text-amber-400 font-bold">+1,800 XP</span>
+            </div>
+          </div>
+
+          <!-- Node 5: B2 -->
+          <div onclick="openLevelDrawer('b2')" class="group cursor-pointer bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-sky-500 rounded-2xl p-6 transition duration-300 relative overflow-hidden">
+            <div class="flex items-start justify-between mb-4">
+              <span class="w-12 h-12 rounded-xl bg-slate-700 text-slate-300 font-extrabold text-lg flex items-center justify-center group-hover:bg-sky-600 group-hover:text-white transition">
+                05
+              </span>
+              <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">B2 Level</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-400 transition">Upper-Intermediate Vanguard</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">Spontaneous fluent conversation with native speakers, complex technical arguments.</p>
+            <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden mb-3">
+              <div class="bg-amber-400 h-full w-1/4"></div>
+            </div>
+            <div class="flex justify-between items-center text-xs font-semibold text-slate-400">
+              <span>Duration: 3 Months</span>
+              <span class="text-amber-400 font-bold">+2,500 XP</span>
+            </div>
+          </div>
+
+          <!-- Node 6: C1 -->
+          <div onclick="openLevelDrawer('c1')" class="group cursor-pointer bg-slate-800/80 hover:bg-slate-800 border border-amber-500/50 rounded-2xl p-6 transition duration-300 relative overflow-hidden shadow-lg shadow-amber-500/10">
+            <div class="flex items-start justify-between mb-4">
+              <span class="w-12 h-12 rounded-xl bg-amber-500 text-slate-900 font-black text-lg flex items-center justify-center">
+                06
+              </span>
+              <span class="text-xs font-extrabold uppercase px-3 py-1 rounded-full bg-amber-400 text-slate-900">C1 Mastery</span>
+            </div>
+            <h3 class="text-xl font-bold text-amber-300 mb-2">Advanced Master Class</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">Flexible language use for social, academic & professional purposes. Full fluency.</p>
+            <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden mb-3">
+              <div class="bg-amber-400 h-full w-1/12"></div>
+            </div>
+            <div class="flex justify-between items-center text-xs font-semibold text-slate-400">
+              <span>Duration: 3.5 Months</span>
+              <span class="text-amber-400 font-bold">+4,000 XP</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section id="about" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          
+          <div class="space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold">
+              <i data-lucide="award" class="w-4 h-4"></i>
+              <span data-i18n="about_badge">About Bright Path Center</span>
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight" data-i18n="about_title">
+              Empowering Students in Bago to Speak English with Confidence
+            </h2>
+
+            <p class="text-slate-600 text-base leading-relaxed" data-i18n="about_p1">
+              Located at No 1677 San Daw Twin Road in Bago, Bright Path English Learning Center is dedicated to transforming standard language education through game-inspired active learning, small class sizes, and certified native & local instructors.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-4 pt-2">
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                <i data-lucide="target" class="w-6 h-6 text-sky-600 mb-2"></i>
+                <h4 class="font-bold text-slate-900 text-sm mb-1" data-i18n="about_mission_title">Our Mission</h4>
+                <p class="text-xs text-slate-600" data-i18n="about_mission_desc">To provide engaging, standard CEFR-aligned training that unlocks job and study opportunities.</p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                <i data-lucide="eye" class="w-6 h-6 text-amber-500 mb-2"></i>
+                <h4 class="font-bold text-slate-900 text-sm mb-1" data-i18n="about_vision_title">Our Vision</h4>
+                <p class="text-xs text-slate-600" data-i18n="about_vision_desc">To be Bago’s leading modern center for practical English and communicative mastery.</p>
+              </div>
+            </div>
+
+            <!-- Core Values Pills -->
+            <div class="space-y-2 pt-2">
+              <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Core Values</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-slate-100 rounded-lg text-xs font-semibold text-slate-700">Interactive Practice</span>
+                <span class="px-3 py-1 bg-slate-100 rounded-lg text-xs font-semibold text-slate-700">Personalized Guidance</span>
+                <span class="px-3 py-1 bg-slate-100 rounded-lg text-xs font-semibold text-slate-700">CEFR Standards</span>
+                <span class="px-3 py-1 bg-slate-100 rounded-lg text-xs font-semibold text-slate-700">Gamified Motivation</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="grid grid-cols-2 gap-4">
+              <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Teacher explaining English lesson" class="rounded-2xl object-cover h-64 w-full shadow-md" />
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Students collaborating in group work" class="rounded-2xl object-cover h-64 w-full shadow-md mt-6" />
+            </div>
+            
+            <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-xl flex items-center gap-6 w-11/12">
+              <div class="text-center">
+                <p class="text-2xl font-black text-amber-400">5+ Yrs</p>
+                <p class="text-[10px] uppercase font-semibold text-slate-400">Excellence</p>
+              </div>
+              <div class="w-px h-8 bg-slate-700"></div>
+              <div class="text-center">
+                <p class="text-2xl font-black text-sky-400">100%</p>
+                <p class="text-[10px] uppercase font-semibold text-slate-400">CEFR Aligned</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES / PROGRAM CATALOG -->
+    <section id="courses" class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold mb-2">
+              <i data-lucide="book-open" class="w-4 h-4"></i>
+              <span data-i18n="courses_badge">Course Offerings</span>
+            </div>
+            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight" data-i18n="courses_title">
+              Featured English Programs
+            </h2>
+          </div>
+
+          <!-- Level Filter Buttons -->
+          <div class="flex flex-wrap gap-2" id="courseFilters">
+            <button onclick="filterCourses('all')" class="filter-btn active px-4 py-2 rounded-lg text-xs font-bold transition">All Levels</button>
+            <button onclick="filterCourses('beginner')" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold transition">Starter (Pre-A1/A1)</button>
+            <button onclick="filterCourses('intermediate')" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold transition">Intermediate (A2/B1)</button>
+            <button onclick="filterCourses('advanced')" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold transition">Advanced (B2/C1)</button>
+          </div>
+        </div>
+
+        <!-- Course Cards Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="courseCardsGrid">
+          
+          <!-- Course Card 1 -->
+          <div class="course-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition" data-category="beginner">
+            <div class="relative h-48">
+              <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=600&q=80" alt="Starter Foundation English" class="w-full h-full object-cover" />
+              <span class="absolute top-3 left-3 bg-slate-900 text-white text-xs font-bold px-2.5 py-1 rounded-md">Level Pre-A1 – A1</span>
+            </div>
+            <div class="p-6 space-y-4">
+              <h3 class="text-xl font-bold text-slate-900">Starter Foundation English</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">Perfect for absolute beginners. Master phonics, everyday vocabulary, and simple conversation confidence.</p>
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+                <span>Duration: 8 Weeks</span>
+                <span class="text-sky-600 font-extrabold text-sm">85,000 MMK / mo</span>
+              </div>
+              <button onclick="openEnrollModal('Starter Foundation English')" class="w-full py-2.5 rounded-xl bg-sky-600 text-white font-bold text-xs hover:bg-sky-700 transition">Enroll in Program</button>
+            </div>
+          </div>
+
+          <!-- Course Card 2 -->
+          <div class="course-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition" data-category="intermediate">
+            <div class="relative h-48">
+              <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=600&q=80" alt="Intermediate Communicator" class="w-full h-full object-cover" />
+              <span class="absolute top-3 left-3 bg-amber-500 text-slate-900 text-xs font-bold px-2.5 py-1 rounded-md">Level A2 – B1</span>
+            </div>
+            <div class="p-6 space-y-4">
+              <h3 class="text-xl font-bold text-slate-900">Intermediate Conversation & Grammar</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">Speak with fluency in daily scenarios, discuss work topics, write clear letters, and build complex sentences.</p>
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+                <span>Duration: 12 Weeks</span>
+                <span class="text-sky-600 font-extrabold text-sm">110,000 MMK / mo</span>
+              </div>
+              <button onclick="openEnrollModal('Intermediate Conversation & Grammar')" class="w-full py-2.5 rounded-xl bg-sky-600 text-white font-bold text-xs hover:bg-sky-700 transition">Enroll in Program</button>
+            </div>
+          </div>
+
+          <!-- Course Card 3 -->
+          <div class="course-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition" data-category="advanced">
+            <div class="relative h-48">
+              <img src="https://storage.ghost.io/c/f4/50/f450cc27-fb3c-44f8-a0c8-6687e2959474/content/images/size/w960/2025/04/c1-english.png" alt="C1 Professional & IELTS Mastery" class="w-full h-full object-cover" />
+              <span class="absolute top-3 left-3 bg-slate-900 text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md">Level B2 – C1</span>
+            </div>
+            <div class="p-6 space-y-4">
+              <h3 class="text-xl font-bold text-slate-900">C1 Professional & IELTS Prep</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">For university admissions and career advancement. Academic writing, public speaking, and IELTS exam techniques.</p>
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+                <span>Duration: 14 Weeks</span>
+                <span class="text-sky-600 font-extrabold text-sm">140,000 MMK / mo</span>
+              </div>
+              <button onclick="openEnrollModal('C1 Professional & IELTS Prep')" class="w-full py-2.5 rounded-xl bg-sky-600 text-white font-bold text-xs hover:bg-sky-700 transition">Enroll in Program</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING & TUITION SECTION -->
+    <section id="pricing" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold">
+            <i data-lucide="tag" class="w-4 h-4"></i>
+            <span data-i18n="pricing_badge">Clear Tuition Plans</span>
+          </div>
+          <h2 class="text-3xl font-extrabold text-slate-900" data-i18n="pricing_title">Affordable Learning Plans</h2>
+          <p class="text-slate-600 text-sm" data-i18n="pricing_desc">No hidden fees. Includes coursebooks, mobile app quest access, and weekly practice sessions.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          
+          <!-- Plan 1 -->
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 flex flex-col justify-between hover:border-slate-300 transition">
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">Basic Explorer</h3>
+              <p class="text-xs text-slate-500 mt-1">Pre-A1 to A1 Level Students</p>
+              <div class="my-6">
+                <span class="text-3xl font-extrabold text-slate-900">85,000</span>
+                <span class="text-xs text-slate-500 font-semibold"> MMK / month</span>
+              </div>
+              <ul class="space-y-3 text-xs text-slate-600 mb-8">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> 2 Days per week (3 Hours total)</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Free printed learning pack</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Online Level Map XP tracking</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Monthly speaking evaluation</li>
+              </ul>
+            </div>
+            <button onclick="openEnrollModal('Basic Explorer Plan')" class="w-full py-3 rounded-xl border border-slate-300 font-bold text-xs text-slate-800 hover:bg-slate-200/50 transition">Select Plan</button>
+          </div>
+
+          <!-- Plan 2 (Featured) -->
+          <div class="bg-slate-900 text-white border-2 border-amber-400 rounded-2xl p-8 flex flex-col justify-between relative shadow-xl transform scale-105">
+            <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-amber-400 text-slate-900 text-[10px] uppercase font-black px-3 py-1 rounded-full tracking-wider">Most Popular</span>
+            <div>
+              <h3 class="text-lg font-bold text-amber-400">Standard Quest</h3>
+              <p class="text-xs text-slate-400 mt-1">A2 to B2 Level Mastery</p>
+              <div class="my-6">
+                <span class="text-3xl font-extrabold text-white">110,000</span>
+                <span class="text-xs text-slate-400 font-semibold"> MMK / month</span>
+              </div>
+              <ul class="space-y-3 text-xs text-slate-300 mb-8">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400"></i> 3 Days per week (4.5 Hours total)</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400"></i> Unlimited Native Speaker Club</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400"></i> Full Gamified App Dashboard</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-amber-400"></i> CEFR Progress Certificate</li>
+              </ul>
+            </div>
+            <button onclick="openEnrollModal('Standard Quest Plan')" class="w-full py-3 rounded-xl bg-amber-400 text-slate-900 font-extrabold text-xs hover:bg-amber-300 transition shadow-md">Select Plan</button>
+          </div>
+
+          <!-- Plan 3 -->
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 flex flex-col justify-between hover:border-slate-300 transition">
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">Intensive Mastery</h3>
+              <p class="text-xs text-slate-500 mt-1">B2 to C1 Academic & Career</p>
+              <div class="my-6">
+                <span class="text-3xl font-extrabold text-slate-900">140,000</span>
+                <span class="text-xs text-slate-500 font-semibold"> MMK / month</span>
+              </div>
+              <ul class="space-y-3 text-xs text-slate-600 mb-8">
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> 4 Days per week + Weekend Mock</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> 1-on-1 Essay Feedback</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> IELTS / Business Exam Drills</li>
+                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Job Interview Mentorship</li>
+              </ul>
+            </div>
+            <button onclick="openEnrollModal('Intensive Mastery Plan')" class="w-full py-3 rounded-xl border border-slate-300 font-bold text-xs text-slate-800 hover:bg-slate-200/50 transition">Select Plan</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="py-20 bg-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-200 text-sky-900 text-xs font-bold">
+            <i data-lucide="message-square" class="w-4 h-4"></i>
+            <span>Student Success Stories</span>
+          </div>
+          <h2 class="text-3xl font-extrabold text-slate-900">What Our Students Say</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <div class="flex items-center gap-1 text-amber-400">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              "I started from zero at Pre-A1 level. The XP game map made learning English fun instead of stressful. Now I can speak fluently with my foreign colleagues in Bago!"
+            </p>
+            <div class="flex items-center gap-3 pt-2">
+              <div class="w-10 h-10 rounded-full bg-sky-200 flex items-center justify-center font-bold text-sky-800">
+                TH
+              </div>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Thiri Hnin</p>
+                <p class="text-[10px] text-slate-500">Achieved B2 Upper-Intermediate</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <div class="flex items-center gap-1 text-amber-400">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              "The C1 Professional preparation class helped me score 7.5 in IELTS. Teachers here are so encouraging and patient. Highly recommended for students in Bago!"
+            </p>
+            <div class="flex items-center gap-3 pt-2">
+              <div class="w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center font-bold text-amber-800">
+                AM
+              </div>
+              <div>
+                <p class="text-xs font-bold text-slate-900">Aung Min</p>
+                <p class="text-[10px] text-slate-500">IELTS Academic Student</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <div class="flex items-center gap-1 text-amber-400">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              "Great atmosphere, friendly teachers, and clear level progressions. Bright Path is definitely the best English center in Bago town."
+            </p>
+            <div class="flex items-center gap-3 pt-2">
+              <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-800">
+                MK
+              </div>
+              <div>
+                <p class="text-xs font-bold text-slate-900">May Kabyar</p>
+                <p class="text-[10px] text-slate-500">Level A2 Graduate</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION & LIGHTBOX -->
+    <section id="gallery" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold">
+            <i data-lucide="image" class="w-4 h-4"></i>
+            <span>Campus Life</span>
+          </div>
+          <h2 class="text-3xl font-extrabold text-slate-900">Bright Path Gallery</h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="galleryGrid">
+          <div onclick="openLightbox('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80')" class="cursor-pointer overflow-hidden rounded-xl aspect-square relative group">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Classroom Discussion" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" />
+            <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white">
+              <i data-lucide="maximize-2" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <div onclick="openLightbox('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1200&q=80')" class="cursor-pointer overflow-hidden rounded-xl aspect-square relative group">
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Speaking Practice" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" />
+            <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white">
+              <i data-lucide="maximize-2" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <div onclick="openLightbox('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80')" class="cursor-pointer overflow-hidden rounded-xl aspect-square relative group">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Group Project Work" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" />
+            <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white">
+              <i data-lucide="maximize-2" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <div onclick="openLightbox('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1200&q=80')" class="cursor-pointer overflow-hidden rounded-xl aspect-square relative group">
+            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=600&q=80" alt="Interactive Games" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" />
+            <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white">
+              <i data-lucide="maximize-2" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <div onclick="openLightbox('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2X4wjTNOo7NOEYoqLnxG_5ind9btFyQigQj2rMaG7OYfG1g1d6pzaSd0&s=10)" class="cursor-pointer overflow-hidden rounded-xl aspect-square relative group">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80" alt="Graduation Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" />
+            <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white">
+              <i data-lucide="maximize-2" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <div onclick="openLightbox('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=1200&q=80')" class="cursor-pointer overflow-hidden rounded-xl aspect-square relative group">
+            <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=600&q=80" alt="Library Study Lounge" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" />
+            <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white">
+              <i data-lucide="maximize-2" class="w-6 h-6"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ ACCORDION SECTION -->
+    <section id="faq" class="py-20 bg-slate-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold">
+            <i data-lucide="help-circle" class="w-4 h-4"></i>
+            <span>Frequently Asked Questions</span>
+          </div>
+          <h2 class="text-3xl font-extrabold text-slate-900">Have Questions? We Have Answers</h2>
+        </div>
+
+        <div class="space-y-4" id="faqAccordion">
+          
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition">
+              <span>How do I know my current English level?</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+              You can take our free online 5-minute placement test right on this website, or visit our Bago center for a detailed 1-on-1 interview with our head instructor.
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition">
+              <span>Where is Bright Path English Learning Center located?</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+              We are located at No 1677 San Daw Twin Road, Bago, Myanmar. You are welcome to visit us during class hours!
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition">
+              <span>What age groups do you teach?</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+              We offer classes for young learners, high school students, university undergraduates, and working professionals seeking business English or IELTS preparation.
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition">
+              <span>Do I receive a certificate upon completing a level?</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-4 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+              Yes! Every student who successfully finishes a level quest and passes the final exit assessment receives an official Bright Path CEFR Certificate.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION & MAP LOCATION -->
+    <section id="contact" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12">
+          
+          <div class="lg:col-span-5 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-bold">
+              <i data-lucide="phone-call" class="w-4 h-4"></i>
+              <span>Get In Touch</span>
+            </div>
+
+            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Contact Bright Path Center</h2>
+            <p class="text-xs text-slate-600 leading-relaxed">Have questions about enrollment, class schedules, or level placement? Send us a message or contact us via Viber and Telegram.</p>
+
+            <div class="space-y-4 pt-2">
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-900">Address</p>
+                  <p class="text-xs text-slate-600">No 1677 San Daw Twin Road, Bago, Myanmar</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
+                  <i data-lucide="phone" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-900">Phone</p>
+                  <p class="text-xs text-slate-600">+95 976419198</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-slate-900">Email</p>
+                  <p class="text-xs text-slate-600">misthiri2729@gmail.com</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="pt-4 border-t border-slate-100">
+              <p class="text-xs font-bold text-slate-900 mb-3">Connect via Messenger & Socials:</p>
+              <div class="flex gap-2">
+                <a href="https://viber.com" target="_blank" class="px-4 py-2 rounded-lg bg-purple-50 text-purple-700 hover:bg-purple-100 text-xs font-bold flex items-center gap-1.5 transition">
+                  <i data-lucide="phone-call" class="w-4 h-4"></i> Viber
+                </a>
+                <a href="https://telegram.org" target="_blank" class="px-4 py-2 rounded-lg bg-sky-50 text-sky-700 hover:bg-sky-100 text-xs font-bold flex items-center gap-1.5 transition">
+                  <i data-lucide="send" class="w-4 h-4"></i> Telegram
+                </a>
+                <a href="https://facebook.com" target="_blank" class="px-4 py-2 rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100 text-xs font-bold flex items-center gap-1.5 transition">
+                  <i data-lucide="facebook" class="w-4 h-4"></i> Facebook
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="lg:col-span-7 bg-slate-50 p-8 rounded-2xl border border-slate-200">
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Send Us a Direct Message</h3>
+            
+            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Your Full Name</label>
+                  <input type="text" required placeholder="e.g. Thiri Hnin" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
+                  <input type="tel" required placeholder="e.g. 0976419198" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
+                <input type="email" required placeholder="misthiri2729@gmail.com" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Interested Level / Question</label>
+                <textarea rows="4" required placeholder="Tell us about your English goals..." class="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-sky-500 focus:outline-none"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3 bg-sky-600 text-white font-bold text-xs rounded-lg hover:bg-sky-700 transition shadow-sm">
+                Submit Message
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-white pt-16 pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-sky-600 flex items-center justify-center font-black text-white">BP</div>
+            <span class="text-lg font-extrabold tracking-tight">BRIGHT PATH</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Leading gamified English learning center in Bago, offering standard CEFR progression from Pre-A1 Starter to C1 Advanced.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#home" class="hover:text-white transition">Home</a></li>
+            <li><a href="#quest" class="hover:text-white transition">CEFR Quest Map</a></li>
+            <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+            <li><a href="#courses" class="hover:text-white transition">Courses & Tuition</a></li>
+            <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-4">Levels Offered</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li>Pre-A1 Starter</li>
+            <li>A1 Elementary</li>
+            <li>A2 Pre-Intermediate</li>
+            <li>B1 Intermediate</li>
+            <li>B2 Upper-Intermediate</li>
+            <li>C1 Advanced & IELTS</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-4">Center Location</h4>
+          <p class="text-xs text-slate-400 leading-relaxed mb-2">No 1677 San Daw Twin Road, Bago, Myanmar</p>
+          <p class="text-xs text-slate-400">Phone: +95 976419198</p>
+          <p class="text-xs text-slate-400">Email: misthiri2729@gmail.com</p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+        © 2026 Bright Path English Learning Center. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL: LEVEL DRAWER DETAIL MODAL -->
+  <div id="levelModal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 space-y-4 relative shadow-2xl animate-fade-in">
+      <button onclick="closeLevelModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      <div id="levelModalContent">
+        <!-- Content inserted dynamically by script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: FREE PLACEMENT LEVEL TEST -->
+  <div id="placementModal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-xl w-full p-6 space-y-6 relative shadow-2xl">
+      <button onclick="closePlacementModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      <div>
+        <span class="text-[10px] uppercase font-bold px-2.5 py-1 bg-amber-100 text-amber-800 rounded-md">Interactive Test</span>
+        <h3 class="text-2xl font-extrabold text-slate-900 mt-1">Free CEFR English Level Diagnostic</h3>
+        <p class="text-xs text-slate-500">Answer 3 sample questions to evaluate your starting level.</p>
+      </div>
+
+      <div id="quizContainer" class="space-y-4">
+        <!-- Question 1 -->
+        <div class="quiz-q space-y-2">
+          <p class="text-xs font-bold text-slate-800">1. Select the correct sentence:</p>
+          <div class="space-y-1.5 text-xs">
+            <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+              <input type="radio" name="q1" value="0" /> She don't like coffee.
+            </label>
+            <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+              <input type="radio" name="q1" value="1" /> She doesn't like coffee.
+            </label>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-q space-y-2">
+          <p class="text-xs font-bold text-slate-800">2. "If I _____ harder, I would have passed the exam."</p>
+          <div class="space-y-1.5 text-xs">
+            <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+              <input type="radio" name="q2" value="1" /> had studied
+            </label>
+            <label class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer">
+              <input type="radio" name="q2" value="0" /> studied
+            </label>
+          </div>
+        </div>
+
+        <button onclick="calculateQuizResult()" class="w-full py-3 bg-sky-600 text-white font-bold text-xs rounded-xl hover:bg-sky-700 transition">
+          Calculate My Level
+        </button>
+      </div>
+
+      <div id="quizResult" class="hidden text-center space-y-4 py-4">
+        <div class="w-16 h-16 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center mx-auto text-2xl font-black">
+          ★
+        </div>
+        <h4 class="text-xl font-bold text-slate-900" id="resultTitle">Estimated Level: B1 Intermediate</h4>
+        <p class="text-xs text-slate-600" id="resultDesc">Great job! You have solid foundational grammar. We recommend enrolling in our B1-B2 Quest program.</p>
+        <button onclick="closePlacementModal()" class="px-6 py-2.5 bg-slate-900 text-white font-bold text-xs rounded-xl">Close & View Programs</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" class="max-w-full max-h-full rounded-lg shadow-2xl" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
